@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-31",
+  "reviewer": "Independent public-release review agent",
+  "verdict": "PASS",
+  "scope": "Entire current standalone source tree including hidden hosting/CI/template files, all generated deployment assets, export composition, fresh git history and selected manufacturer primary sources. Review does not certify unknown future content or arbitrary private-data detection.",
+  "sourceFiles": {
+    ".github/ISSUE_TEMPLATE/task.md": "b13d7672daae0e511eb5852032a21744b4b0685760d5b6cb459c1d9d36daa709",
+    ".github/PULL_REQUEST_TEMPLATE.md": "6c02d2ed309a310ed53bd823c5fcb0be606f7ca827b7bc177ee5025084f635a7",
+    ".github/workflows/check.yml": "79521aa9f6666e200139e16a9bc47de82f1876e88e422811fd5200b2bcd8d601",
+    ".gitignore": "bb97b8a8d2ef7dd7e3ffed2b587b32c95eb216e728fbb2034cce367309c2d9ea",
+    ".openai/hosting.json": "4c5aeda7ce6f60310945f80d2fec3d69bf9ca2fdc8eb6ada7bd1bf90d1882958",
+    "AGENTS.md": "4ee5b41dd116563de14ff66737c77c3ab42acedc7410443a8c400c86cf239aea",
+    "README.md": "e52c22126d87885a04fd5bda06b09a79b6198c521cdd2a18630428e9033ce3da",
+    "THIRD_PARTY_NOTICES.md": "58fb8b962e9c68593f7b064f73de5ecadcf9d9815eb4f4aaaee5a738f78c2a78",
+    "content/manufacturer-handlers.js": "b84a486a9f390db531cf17f7ae0c848129c78827248b95a9b956fa83d2b0d696",
+    "content/manufacturer-peripherals.js": "e0f0c05cea43dc9863093b52599d47d99d58033a4d5c8ec0dc3a958d043b6da6",
+    "content/reference.js": "bfa966573c2cf9e1dac6d6c92c6f4a9be3d5b66b3d58f03d0ef8987f554bcea7",
+    "docs/manufacturer-handlers.md": "76af5b3dd8d52faba3978f63d2ad7c59cffd50cf580ac6ba0553b51059ece7e7",
+    "docs/manufacturer-peripherals.md": "30fdb3ef95f13526d039beb29f4a56a85b4bacee54bd5c0b1adfee843133ba07",
+    "lib/catalogue.js": "76cc732f5a3ace59a894b048615f446672335ba2ef9e90b7ad207415ff608f59",
+    "package.json": "ed1c53de435253394d12ea7d3793586142b9407595e00f2a93426ab998e6e0ea",
+    "scripts/build.mjs": "e25515d2d964cef52e0c97ce29410506b525e9a0d924e0e22394dac865e6175b",
+    "scripts/check.mjs": "a59eb5a08c3ff2459961c782434b460b69bf857cf3a96dc1a9bcc76dfd6a3d6b",
+    "tests/catalogue.test.js": "ba45b4869c996342836d63bd26da3bc44189f975f873d3292895dcdfcdd4bace",
+    "web/app.js": "25e2b5b1e2efa9a69c8bb46535df52b2684c2b4dc3db4fbc3b19ed07ba835fb7",
+    "web/index.html": "58bc813828d261bfa633d3a4fa50392ba6f31ba5114daf57ac9a2174498b011e",
+    "web/styles.css": "eb58e89b8806e079bb01c6c0799b5652db18f34ada6dc4fc4fdf8bc7cf88a800"
+  },
+  "builtAssets": {
+    "index.html": "a903ad2d5cc50798768765ebbb6ee50fd37d74b5ac8133b948b19a1bf52d78ce",
+    "THIRD_PARTY_NOTICES.md": "58fb8b962e9c68593f7b064f73de5ecadcf9d9815eb4f4aaaee5a738f78c2a78",
+    "web/index.html": "58bc813828d261bfa633d3a4fa50392ba6f31ba5114daf57ac9a2174498b011e",
+    "web/styles.css": "eb58e89b8806e079bb01c6c0799b5652db18f34ada6dc4fc4fdf8bc7cf88a800",
+    "web/app.js": "25e2b5b1e2efa9a69c8bb46535df52b2684c2b4dc3db4fbc3b19ed07ba835fb7",
+    "content/manufacturer-handlers.js": "b84a486a9f390db531cf17f7ae0c848129c78827248b95a9b956fa83d2b0d696",
+    "content/manufacturer-peripherals.js": "e0f0c05cea43dc9863093b52599d47d99d58033a4d5c8ec0dc3a958d043b6da6",
+    "content/reference.js": "bfa966573c2cf9e1dac6d6c92c6f4a9be3d5b66b3d58f03d0ef8987f554bcea7",
+    "lib/catalogue.js": "76cc732f5a3ace59a894b048615f446672335ba2ef9e90b7ad207415ff608f59"
+  },
+  "sourceFileCount": 21,
+  "builtAssetCount": 9,
+  "history": {
+    "commitCount": 1,
+    "commits": [
+      "3f46ff370d1a229147f55bb6ab0331d1bb68fa38 Initial commit"
+    ],
+    "finding": "Fresh repository initialization only; no prior private project history."
+  },
+  "checks": {
+    "nodeTests": "5 passed, 0 failed",
+    "recordCheck": "102 records, 107 sourced claims; source references valid",
+    "secrets": "gitleaks dir . --redact: no leaks found",
+    "privacy": "No private protocol, installation, access, correspondence, local source paths or prior private-project links found in reviewed records/assets. Generic scanner denylist literals are enforcement code, not stored source records.",
+    "build": "Existing generated assets match current allowlisted source files. No source archives, raw protocol bodies or hidden private bundle present.",
+    "uiNumbers": "Instrument numbers are rendered from reference/claim records; catalogue counts are derived. Layout numerals and comparison-selection limits are UI controls, not instrument claims."
+  },
+  "resolvedFindings": [
+    {
+      "finding": "Person-specific private-context denylist literals existed in source scanners/tests.",
+      "resolution": "Root replaced them with generic service/path/structural markers before this exact source audit."
+    }
+  ],
+  "manufacturerSpotChecks": [
+    {
+      "instrument": "ROTINA 380 RC Robotic",
+      "claims": [
+        "rotina-tube-rotor",
+        "rotina-plate-rotor",
+        "rotina-cooled-rotors"
+      ],
+      "url": "https://www.hettichlab.com/downloadcenter/Products/Datasheets/ROTINA380-380RC-Robotic_EN.pdf",
+      "section": "PDF pages 2–3, rotor/bucket tables and footnotes",
+      "result": "Supported: 3724-R with 3725-R/4 reaches 4696 ×g at 5000 rpm; 3722-R with 3730-R/2 reaches 4362 ×g at 5100 rpm. Zero-degree lowest-achievable condition explicitly requires cooled version, precooling and max speed."
+    },
+    {
+      "instrument": "INHECO ODTC",
+      "claims": [
+        "odtc-accuracy",
+        "odtc-uniformity",
+        "odtc-temperature"
+      ],
+      "url": "https://www.inheco.com/odtc.html",
+      "section": "Technical Specifications ODTC 96/96XL/384/384XL",
+      "result": "Supported: ±0.30 K at 55°C, uniformity ±0.20 K at named plateau temperatures, 4–99°C range. Incomplete below-ambient footnote is retained as a gap."
+    },
+    {
+      "instrument": "CFX Opus 96",
+      "claims": [
+        "cfx-thermal-accuracy"
+      ],
+      "url": "https://www.bio-rad.com/sites/default/files/webroot/web/pdf/lsr/literature/Bulletin_7299.pdf",
+      "section": "Page 2, Specifications / 96-Well Reaction Block",
+      "result": "Supported: ±0.2°C thermal accuracy has no specified test temperature in this bulletin. The 10-second timing condition belongs to uniformity; record correctly does not transfer it to accuracy."
+    },
+    {
+      "instrument": "MANTIS",
+      "claims": [
+        "mantis-lv-minimum",
+        "mantis-hifi-specification"
+      ],
+      "url": "https://help.formulatrix.com/mantis/5.4/Content/Hardware_Overview.htm",
+      "section": "Chip Types and Specifications rows; footnote **",
+      "result": "Supported: LV minimum 0.1 µL; LV/HV Hi-Fi rows list 5% accuracy error and <2% CV, compatible with software 5.1 or newer. Standard silicone chips instead list <3% CV; record preserves distinction."
+    },
+    {
+      "instrument": "Flex Magnetic Block GEN1",
+      "claims": [
+        "magblock-passive",
+        "magblock-environment"
+      ],
+      "url": "https://docs.opentrons.com/flex/modules/magnetic-block/",
+      "section": "Magnetic components; Software control; Magnetic Block specifications",
+      "result": "Supported: fixed ring magnets, unpowered device, gripper-mediated labware movement; listed ambient temperature 20–25°C. No capture or assay performance inferred."
+    }
+  ],
+  "findings": [],
+  "limits": [
+    "Snapshot applies to the recorded hashes. Later source or build changes require affected checks again.",
+    "Manufacturer spot checks cover selected strong claims, not every numerical value or every linked URL.",
+    "No browser interaction or deployment/access-state test performed in this review.",
+    "No wet-lab or hardware performance validation; published manufacturer statements remain manufacturer evidence."
+  ],
+  "finalRefresh": {
+    "reason": "Final manufacturer conflict correction and presentation normalization",
+    "hamilton": "The channel claim now explicitly preserves eight-channel overview versus four-channel specification-table contradiction and the separate eight-channel application. No universal numeric value is assigned. Source section and evidence log agree.",
+    "normalization": "FORMULATRIX/INHECO display case and category/operation case normalized without changing quantitative claims, source IDs, provenance or source snapshot. Original content/reference.js remains retained.",
+    "checks": "Five tests passed; check confirms 102 records and 107 sourced claims; current allowlisted build assets hash-match current source; gitleaks reports no leaks.",
+    "remainingMaterialIssues": []
+  }
+}
