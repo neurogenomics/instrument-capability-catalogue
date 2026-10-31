@@ -14,3 +14,7 @@ Follow Nathan's engineering standards (in `~/.codex/AGENTS.md` and `~/.claude/CL
 - This entire source tree may be packaged for the public Site source repository. Never copy private planner sources/history, local SOPs, access records, correspondence or private evidence paths here.
 - Each claim needs sourceIds resolving to a source URL and section; quantitative claims need units and configuration/conditions. Gaps remain explicit. Driver support does not establish hardware or assay validity.
 - dist/ is generated and ignored. Build scans every deployed asset for private markers. Retain full upstream MIT notices in downloadable records and THIRD_PARTY_NOTICES.md.
+
+## Integration and economics
+
+`content/integration.js` and `content/procurement.js` contain public-source evidence only. Never admit private correspondence or quote amounts, names or offers. Price observations require a date, currency and source, exact condition and stated price basis. Record stock/orderability separately. Do not sum incompatible configurations, bundles, currencies or unknown installation/service costs. Preserve upstream driver scope and hardware-testing flags; no inferred ease or full-module coverage. JSON/CSV exports must include new fields and source references.
