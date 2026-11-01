@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "checked": "2026-10-31",
+  "reviewer": "Independent procurement primary-source review",
+  "verdict": "PASS",
+  "scope": "All 24 numerical observations and the strongest inclusion, lifecycle, configuration and availability assertions in the four hashed procurement and used-listing files. Current working tree and generated assets screened for private-source markers; no confidential comparison corpus was supplied or accessed.",
+  "files": {
+    "content/procurement.js": "55a4943d499c8ff1e13f8629b877f2b631158f06363dea771191fb9db4c90182",
+    "docs/procurement-evidence.md": "a9719da9ebbdbf58d384e79285bca95e02540998fe6760e4b2e90c7dfc12ab0c",
+    "content/used-listings.js": "239b189af87012ced9ea7f50976ed55943ea99de73babb0c3a33b1cc5a89e12e",
+    "docs/used-listing-evidence.md": "0483df5fca9ae002e53e74d4852d0b87ffce5020606347233e7d5ca023afb304"
+  },
+  "counts": {
+    "records": 11,
+    "observations": 35,
+    "numericObservations": 24,
+    "manufacturerNumericObservations": 22,
+    "resellerNumericObservations": 2
+  },
+  "numericChecks": [
+    {
+      "id": "flex-base-start",
+      "amount": 24950,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/robots",
+        "https://opentrons.com/products/opentrons-flex-robot"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-pipette-single-start",
+      "amount": 3600,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/pipettes"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-pipette-eight-start",
+      "amount": 6400,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/pipettes"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-pipette-96-start",
+      "amount": 15250,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/pipettes"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-gripper-start",
+      "amount": 9750,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/opentrons-flex-gripper-gen1"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-magnet-start",
+      "amount": 1750,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/opentrons-flex-magnetic-block-gen1"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-temperature-start",
+      "amount": 3975,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/temperature-module-gen2"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-heatershaker-start",
+      "amount": 4150,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/heater-shaker-module"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-thermocycler-start",
+      "amount": 10230,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/thermocycler-module-1"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-stacker-start",
+      "amount": 15000,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/opentrons-flex-stacker-1"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-temp-caddy-start",
+      "amount": 1500,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-heat-caddy-start",
+      "amount": 1500,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-thermal-caddy-start",
+      "amount": 1750,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-ngs-start",
+      "amount": 77300,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/workstations"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "flex-pcr-start",
+      "amount": 54150,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/workstations"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "ot2-base-start",
+      "amount": 15950,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/robots",
+        "https://opentrons.com/products/ot-2-robot"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "ot2-single-start",
+      "amount": 2950,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/pipettes"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "ot2-eight-start",
+      "amount": 3950,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/pipettes"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "ot2-temperature-start",
+      "amount": 3975,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/temperature-module-gen2"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "ot2-heatershaker-start",
+      "amount": 4150,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/heater-shaker-module"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "ot2-thermocycler-start",
+      "amount": 10230,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/thermocycler-module-1"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "magblock-dedicated-start",
+      "amount": 1750,
+      "currency": "USD",
+      "priceBasis": "starting-at",
+      "sourceType": "manufacturer",
+      "urls": [
+        "https://opentrons.com/products/categories/modules",
+        "https://opentrons.com/products/opentrons-flex-magnetic-block-gen1"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "mantis-hv-chip-pack-fisher",
+      "amount": 1954.08,
+      "currency": "USD",
+      "priceBasis": "displayed-pack",
+      "sourceType": "reseller",
+      "urls": [
+        "https://www.fishersci.com/shop/products/mantis-chip-1ul-and-5ul-12pk/NC1916994"
+      ],
+      "result": "PASS: amount and basis matched against public page; configuration remains qualified"
+    },
+    {
+      "id": "used-bravo-5190722",
+      "amount": 24995,
+      "currency": "USD",
+      "priceBasis": "seller-asking",
+      "sourceType": "reseller",
+      "urls": [
+        "https://www.dotmed.com/listings/detail.html?lid=5190722"
+      ],
+      "result": "PASS: original live page directly retrieved with HTTP200; public seller asking price verified."
+    }
+  ],
+  "verifiedClaims": [
+    {
+      "claim": "Robot base prices and required inclusions",
+      "urls": [
+        "https://opentrons.com/products/categories/robots",
+        "https://opentrons.com/products/opentrons-flex-robot",
+        "https://opentrons.com/products/ot-2-robot"
+      ],
+      "section": "Starting at offers; introduction and product selection",
+      "result": "Flex USD24950 and OT-2 USD15950 verified. Mandatory Flex On-Site Installation retained without invented amount. OT-2 base includes one GEN2 single-channel pipette; no automatic duplicate addition."
+    },
+    {
+      "claim": "Flex module versus OT-2 module variants",
+      "urls": [
+        "https://opentrons.com/products/temperature-module-gen2",
+        "https://opentrons.com/products/heater-shaker-module",
+        "https://opentrons.com/products/thermocycler-module-1"
+      ],
+      "section": "Configuration selector; included block/adapter descriptions",
+      "result": "OT-2 Module Only and Flex caddy/calibration variants are explicit. Category starting amounts correctly do not promise Flex accessories included. Temperature includes a chosen aluminum block; Heater-Shaker includes one selected plate adapter."
+    },
+    {
+      "claim": "Stacker retrofit limitations",
+      "urls": [
+        "https://opentrons.com/products/opentrons-flex-stacker-1"
+      ],
+      "section": "Introduction and configuration selector",
+      "result": "Pre-Q3-2025 robots require an upgrade; upgrade cost excluded. Required kit and configuration selection preserved; no complete retrofit total inferred."
+    },
+    {
+      "claim": "Orderable is not in stock",
+      "urls": [
+        "https://opentrons.com/products/opentrons-flex-robot",
+        "https://opentrons.com/products/ot-2-robot",
+        "https://opentrons.com/products/opentrons-flex-gripper-gen1",
+        "https://opentrons.com/products/opentrons-flex-magnetic-block-gen1",
+        "https://opentrons.com/products/opentrons-flex-stacker-1",
+        "https://opentrons.com/products/temperature-module-gen2",
+        "https://opentrons.com/products/heater-shaker-module",
+        "https://opentrons.com/products/thermocycler-module-1",
+        "https://www.fishersci.com/shop/products/mantis-chip-1ul-and-5ul-12pk/NC1916994"
+      ],
+      "section": "Product Add to Cart controls",
+      "result": "Checked orderable product routes expose Add to Cart. No observation says in-stock. Category-only offers remain not-verified. No checkout, reservation, stock count or shipping date verified."
+    },
+    {
+      "claim": "OT-2 Magnetic Module lifecycle",
+      "urls": [
+        "https://docs.opentrons.com/ot-2/modules/magnetic/"
+      ],
+      "section": "Magnetic Module features / discontinued note",
+      "result": "Manufacturer documentation explicitly states discontinued and possible remaining inventory; Sales confirmation needed. Not compatible with Flex. Record keeps residual-stock uncertainty and distinction from passive Flex Magnetic Block."
+    },
+    {
+      "claim": "Fisher MANTIS chip pack condition",
+      "urls": [
+        "https://www.fishersci.com/shop/products/mantis-chip-1ul-and-5ul-12pk/NC1916994"
+      ],
+      "section": "Title, manufacturer/supplier description, price and surcharge note",
+      "result": "USD1954.08 display verified for NC1916994 / supplier233648. Description says twelve silicone HV chips; price unit says Pack of 1. Existing record correctly treats this as one purchase package described as12, asks pack verification, labels reseller and excludes dispenser. Contract/account pricing and surcharge caveats retained; no capability claims imported."
+    },
+    {
+      "claim": "Used Bravo asking price and reported configuration",
+      "urls": [
+        "https://www.dotmed.com/listings/detail.html?lid=5190722"
+      ],
+      "section": "Asking Price / Condition / Date / As configured included items",
+      "result": "Direct live retrieval verifies USD24995, Used-Good, October26 2026 and Bravo16050-102/96LT/gripper/nine platepads/emergency stop/computer with VWorks/cables. Seller says stockYes; dataset correctly retains not-verified availability. No appraisal, actual sale or entitlement transfer inferred.",
+      "retrievalNote": "Web reader returned an error and search index carried older September dates. Independent direct HTTPS retrieval returned200 and current October26 date; no action query parameters requested."
+    }
+  ],
+  "privacy": {
+    "result": "No private-source leakage found within the screened current tree.",
+    "filesScanned": 38,
+    "includes": "Source, hidden configuration/templates and generated dist assets; excludes .git and node_modules.",
+    "checks": [
+      "No email-address matches found.",
+      "No personal local paths found in data or deployed assets; /home/ matches are public Thermo Fisher URL paths.",
+      "Private service and installation/protocol/access markers occur only as generic enforcement literals in scanners/tests.",
+      "Extracted URL domains correspond to public manufacturers, reseller, public upstream documentation/community/code, or public font delivery.",
+      "All 24 numerical procurement amounts matched independently accessed public offers. No unexplained private numerical quote admitted.",
+      "Built dist/content/procurement.js exactly matches reviewed source.",
+      "Used-listing source and evidence note inspected separately: original public seller URL, no private names, correspondence, quotes or contact data copied."
+    ],
+    "limitations": [
+      "Marker and public-source review cannot prove detection of arbitrary confidential prose or unnamed private figures.",
+      "No confidential messages, emails, quotations or private project were consulted.",
+      "Git history was not re-audited in this bounded review; earlier public-release review records its own separate history scope."
+    ],
+    "additionalFilesScanned": [
+      "content/used-listings.js",
+      "docs/used-listing-evidence.md"
+    ]
+  },
+  "findings": [],
+  "gaps": [
+    "Dynamic configured checkout totals, inventory, tax, freight, installation amounts, regional applicability and service terms remain unverified as recorded.",
+    "Seven null-price manufacturer enquiry routes and their redirect histories were not individually re-opened in this review; no numeric or availability assertion is inferred from them.",
+    "This verifies dated public observations, not universal price minima, procurement suitability or future availability.",
+    "Review is bound to recorded hashes. UI behavior, future edits and deployment state are outside this evidence review.",
+    "Used equipment condition, calibration, software transfer, warranties, current stock and shipping are seller statements or unknown; none independently established."
+  ]
+}

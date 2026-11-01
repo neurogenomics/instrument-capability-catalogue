@@ -26,3 +26,9 @@ The 82 PyLabRobot registry entries retain upstream status, testing flags, nested
 ## Delivery
 
 Milestone1 tracks manufacturer evidence (issue2); milestone2 tracks the standalone public site, isolation checks and delivery (issue1). Issue-linked PRs must pass checks before merging. A known organisation billing restriction may prevent hosted Actions jobs from starting; local validation is reported separately and does not count as green hosted CI.
+
+## Buying and integration readiness
+
+Records separate PyLabRobot registry coverage from a tested integration: exact backend/model scope, upstream driver status, API/documentation, firmware/interface prerequisites and hardware-testing gaps travel with each record. Listed does not mean every operation or module is supported, or that integration is effortless.
+
+Dated procurement observations distinguish instrument, module, bundle and service; new versus used; listing versus asking price; starting-at versus displayed-pack basis; currency/region; tax, shipping, inclusions/exclusions and source. Availability is independent of price: orderable is not in stock, and a quote request is not a lead-time promise. A missing value stays unknown. No currency conversion or configured-total estimate is fabricated. Service, calibration, software licensing, consumables, recovery and physical loading remain explicit verification questions where evidence is missing.

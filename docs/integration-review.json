@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "checked": "2026-10-31",
+  "reviewer": "Independent primary-source integration review",
+  "verdict": "PASS",
+  "scope": "Read-only review of integration records and accompanying evidence log; pinned registry mapping independently checked against freshly fetched upstream JSON; selected operational claims checked against current primary documentation.",
+  "files": {
+    "content/integration.js": "7aeeeddee40c2782cc4d194374ee510a415417bce6e6796f1af973675314a9f7",
+    "docs/integration-evidence.md": "5c2296608fad4bb2bde78a79e74c74ab9c85a3e5e6efaf322bbd2ff0d3e75116",
+    "content/reference.js": "bfa966573c2cf9e1dac6d6c92c6f4a9be3d5b66b3d58f03d0ef8987f554bcea7"
+  },
+  "registry": {
+    "url": "https://raw.githubusercontent.com/PyLabRobot/pylabrobot/3976f1235a4e2180306005541459c2bedfd0dad4/docs/_static/devices.json",
+    "sha256": "85113ffc79450b321916ac93992505a4058b131cda3c51027b8336016b4c532d",
+    "entries": 82
+  },
+  "recordCount": 20,
+  "driverMappingsChecked": 7,
+  "claims": [
+    {
+      "claim": "OT-2 liquid-operation coverage is documented for single-channel GEN1/GEN2 only",
+      "url": "https://docs.pylabrobot.org/stable/user_guide/opentrons/ot2/hello-world.html",
+      "section": "Connection table / Supported liquid operations; Physical setup",
+      "result": "PASS; guide explicitly says single-channel. Integration preserves eight-channel coverage as not established."
+    },
+    {
+      "claim": "Flex one-channel and 96-channel hardware verification remains incomplete",
+      "url": "https://docs.pylabrobot.org/stable/user_guide/opentrons/flex/hello-world.html",
+      "section": "Hardware verification warning; 8-channel runnable examples",
+      "result": "PASS; driver status remains basic, with operation-specific prior checks and explicit unverified heads. No broad hardware qualification inferred."
+    },
+    {
+      "claim": "STAR family backend does not establish NGS STARlet workcell qualification",
+      "url": "https://docs.pylabrobot.org/stable/user_guide/hamilton/star/index.html",
+      "section": "STAR/STARlet models table; legacy STARBackend API",
+      "result": "PASS; upstream lists STAR and STARlet full v0. Crosswalk expressly requires NGS accessories, firmware and channels to be separately established."
+    },
+    {
+      "claim": "MANTIS WIP listing has no API path or quickstart",
+      "url": "https://raw.githubusercontent.com/PyLabRobot/pylabrobot/3976f1235a4e2180306005541459c2bedfd0dad4/docs/_static/devices.json",
+      "section": "formulatrix-mantis registry object",
+      "result": "PASS; pinned object has status wip and lacks api/doc_slug. Missing hardware-testing flag remains null, not false."
+    },
+    {
+      "claim": "BenchCel mapping is 4R-specific with firmware 3.2.20.0",
+      "url": "https://docs.pylabrobot.org/stable/user_guide/agilent/benchcel/hello-world.html",
+      "section": "Verified with; reverse-engineered protocol note; Physical setup",
+      "result": "PASS; four stackers and taught transfer position are explicit. No generic BenchCel model/firmware guarantee."
+    },
+    {
+      "claim": "ODTC protocol generation remains a verification question",
+      "url": "https://docs.pylabrobot.org/stable/user_guide/inheco/odtc/hello-world.html",
+      "section": "Ethernet / SiLA 2 overview and mostly v0 listing",
+      "additionalSource": "https://www.inheco.com/odtc.html",
+      "additionalSection": "Power & Control Unit interface; footnote 1",
+      "result": "PASS; PLR says SiLA 2 while manufacturer table only says SiLA/Ethernet. Record retains exact generation/firmware uncertainty and absent registry API."
+    },
+    {
+      "claim": "Flex Magnetic Block has no direct electronic control",
+      "url": "https://docs.opentrons.com/flex/modules/magnetic-block/",
+      "section": "Magnetic components; Software control",
+      "result": "PASS; passive fixed magnets and gripper-mediated labware movement are correctly distinguished from a standalone driver."
+    },
+    {
+      "claim": "PlateLoc reports target temperature, not measured block temperature",
+      "url": "https://docs.pylabrobot.org/stable/user_guide/agilent/plateloc/hello-world.html",
+      "section": "Read status",
+      "result": "PASS; directly documented distinction retained. Driver command acceptance is not substituted for manufacturer envelope."
+    },
+    {
+      "claim": "Support status is software coverage, not integration ease or assay validity",
+      "url": "https://docs.pylabrobot.org/stable/user_guide/machines.html",
+      "section": "Reading the table",
+      "result": "PASS; WIP/basic/mostly/full labels are not converted into ease scores or physical validation. Unmapped exact models remain not-established rather than unsupported."
+    }
+  ],
+  "structuralChecks": [
+    "Every documented practical consideration cites a source present in its record.",
+    "Verification questions remain explicitly labelled with empty source IDs.",
+    "Pinned driver status/API/testing flags match every mapped upstream record.",
+    "Missing boolean testing flags remain null."
+  ],
+  "findings": [],
+  "gaps": [
+    "No hardware, API connection, firmware or execution tested.",
+    "Current documentation pages can change independently of the pinned registry; recheck affected versions before execution.",
+    "Exact installation and NGS accessory compatibility remain unresolved as recorded.",
+    "No unsupported promise of easy integration, comprehensive hardware support or unattended assay success found."
+  ]
+}
