@@ -18,3 +18,5 @@ Follow Nathan's engineering standards (in `~/.codex/AGENTS.md` and `~/.claude/CL
 ## Integration and economics
 
 `content/integration.js` and `content/procurement.js` contain public-source evidence only. Never admit private correspondence or quote amounts, names or offers. Price observations require a date, currency and source, exact condition and stated price basis. Record stock/orderability separately. Do not sum incompatible configurations, bundles, currencies or unknown installation/service costs. Preserve upstream driver scope and hardware-testing flags; no inferred ease or full-module coverage. JSON/CSV exports must include new fields and source references.
+
+`content/madsci.js` holds independently sourced MADSci links, not PyLabRobot support or proof of device operation. Match models only where the upstream evidence supports it; other records remain `not-assessed`. Keep those unknowns out of source-specific search matches, and preserve the integration evidence in details and JSON/CSV exports.

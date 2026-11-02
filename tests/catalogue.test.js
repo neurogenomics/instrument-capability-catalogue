@@ -1,4 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {catalogue,instrumentExport,toCSV} from '../lib/catalogue.js';
+import {matchesSearch} from '../lib/search.js';
 test('public reference collection is complete with separate discovery layer',()=>{assert.equal(catalogue.records.length,102);assert.equal(catalogue.records.filter(r=>r.evidenceLevel==='upstream-discovery').length,82);assert.equal(new Set(catalogue.records.map(r=>r.id)).size,102);});
 test('claims resolve to manufacturer references with explicit configurations',()=>{for(const r of catalogue.records){const sources=new Map(r.sources.map(s=>[s.id,s]));for(const c of r.claims){assert(c.sourceIds.length);for(const id of c.sourceIds){assert(sources.has(id),`${r.id}/${c.id}/${id}`);assert(sources.get(id).section,`Missing source locator ${id}`);}if(c.value!==undefined){assert(c.unit,`Missing unit ${c.id}`);assert(c.configuration||c.conditions,`Unconditioned quantity ${c.id}`);}}}});
 test('discovery keywords are never upgraded to verified manufacturer claims',()=>{for(const r of catalogue.records.filter(r=>r.evidenceLevel==='upstream-discovery')){assert.equal(r.claims.length,0);assert(r.capabilities.every(c=>c.type==='unspecified'));assert(r.upstream.driverStatus);}});
@@ -8,3 +9,14 @@ test('catalogue contains no private protocol, owner or access records',()=>{cons
 test('unknown price stays distinct from a free item and currency/configuration context is retained',()=>{const items=catalogue.records.flatMap(r=>r.procurement);assert(items.some(p=>p.amount===null));assert(items.some(p=>Number.isFinite(p.amount)&&p.amount>0));for(const p of items){assert(p.amount===null||p.amount>0);if(p.amount!==null){assert(p.currency&&p.priceBasis&&p.checked&&p.configuration);assert(p.vat&&p.shipping);}assert(p.sourceIds.length);}});
 test('upstream driver presence never implies independently validated ease',()=>{const record=catalogue.records.find(r=>r.evidenceLevel==='upstream-discovery');assert.equal(record.integration.status,'upstream-listed');assert(record.integration.gaps.some(g=>g.includes('not been independently measured')));assert(record.integration.drivers[0].status);const unknown=catalogue.records.find(r=>r.integration.status==='not-established');assert(unknown);assert(unknown.integration.gaps.length);});
 test('CSV and individual records retain procurement and control evidence',()=>{const record=catalogue.records.find(r=>r.procurement.some(p=>p.amount!==null));const exported=instrumentExport(record.id);assert.deepEqual(exported.record.procurement,record.procurement);assert(exported.record.integration);const csv=toCSV();for(const column of ['integration','procurement','procurementGaps','priceBasis','currency'])assert(csv.includes(column));});
+test('MADSci exact-model links are independent of existing PyLabRobot evidence',()=>{
+ const ids=['ot2','flex','plr-opentrons-ot2','plr-opentrons-flex'];
+ for(const id of ids){const r=catalogue.records.find(x=>x.id===id);assert(r,id);assert.equal(r.madsci.status,'upstream-listed');assert.equal(r.madsci.integrations[0].module,'ot2_module');assert.equal(r.integration.framework,'PyLabRobot');assert(r.madsci.integrations[0].limitations.includes('not proof'));for(const sourceId of r.madsci.integrations[0].sourceIds)assert(r.sources.some(s=>s.id===sourceId),sourceId);assert.deepEqual(instrumentExport(id).record.madsci,r.madsci);}
+ for(const r of catalogue.records.filter(x=>!ids.includes(x.id))){assert.equal(r.madsci.status,'not-assessed',r.id);assert.equal(r.madsci.integrations.length,0);}
+ const csv=toCSV();assert(csv.includes('madsci'));assert(csv.includes('ecb4e6e80a5f9c1ac8d79a5753e62e4b5cb69105'));
+});
+test('search finds linked MADSci records without treating unassessed records as matches',()=>{
+ assert.deepEqual(catalogue.records.filter(r=>matchesSearch(r,'MADSci')).map(r=>r.id).sort(),['flex','ot2','plr-opentrons-flex','plr-opentrons-ot2']);
+ assert(catalogue.records.some(r=>matchesSearch(r,'opentrons')));
+ assert.equal(catalogue.records.filter(r=>matchesSearch(r,'')).length,catalogue.records.length);
+});
