@@ -21,6 +21,8 @@ python3 -m http.server 8766 --directory dist
 
 Each claim identifies an operation and its native, optional or external origin, with a source and section. Numerical limits require configuration or conditions. Gaps include specifications not extracted, inaccessible documents and unverified combinations. Manufacturer-stated performance is not an independently measured result.
 
+`content/coverage-2026-11.js` (#9) adds 33 curated records: high-end and bench liquid handlers, nanolitre dispensers, magnetic processors and ring-magnet plates, workcell integrators, robot-loadable centrifuges and arms. A record's evidence level is `manufacturer-sourced` when at least one claim rests on a manufacturer document (including manufacturer brochures hosted by distributors, marked `manufacturer (third-party host)`), and `secondary-sourced` when every claim rests on facility, distributor or retailer listings (`kind: 'secondary'`). Low-cost desktop arms are listed with their published specifications and are not lab-validated by their manufacturers.
+
 The 82 PyLabRobot registry entries retain upstream status, testing flags, nested variants, pinned source provenance and the full MIT notice. They do not become 82 validated commercial instrument configurations. Curated and upstream overlaps are not silently merged. See THIRD_PARTY_NOTICES.md and the manufacturer evidence notes in docs/. Manufacturer documents are linked, not redistributed. The collection makes no blanket licence assertion over third-party documents; upstream notices travel with exports.
 
 ## Delivery
