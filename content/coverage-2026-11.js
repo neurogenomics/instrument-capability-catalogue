@@ -3,6 +3,8 @@
 // kind 'secondary' (facility listings, distributors, retailers) are not the
 // manufacturer; claims resting on them carry evidence 'secondary'. Specification
 // evidence is not independent testing or assay validation. No prices.
+import {evidenceFromSources} from '../lib/evidence.js';
+
 const checked = '2026-11-09';
 const src = (id, title, url, section, kind = 'manufacturer') => ({id, title, url, section, kind, checked});
 const c = (id, operation, type, statement, sourceIds, extra = {}) => ({id, operation, type, statement, ...extra, sourceIds});
@@ -401,5 +403,5 @@ export const addedRecords = items.map(r => ({
 export const addedEvidence = items.map(r => {
   const kinds = new Map(r.sources.map(s => [s.id, s.kind]));
   return {id: r.id, summary: r.summary, sources: r.sources, gaps: r.gaps,
-    claims: r.claims.map(x => ({evidence: x.sourceIds.every(id => kinds.get(id) !== 'secondary') ? 'manufacturer' : 'secondary', ...x}))};
+    claims: r.claims.map(x => ({evidence: evidenceFromSources(x.sourceIds.map(id => kinds.get(id))), ...x}))};
 });
