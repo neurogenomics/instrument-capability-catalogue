@@ -35,7 +35,7 @@ The **ROAR equipment** view covers 26 roles from seven public Imperial pages. It
 
 ## Delivery
 
-Milestone1 tracks manufacturer evidence (issue2); milestone2 tracks the standalone public site, isolation checks and delivery (issue1). Issue-linked PRs must pass checks before merging. A known organisation billing restriction may prevent hosted Actions jobs from starting; local validation is reported separately and does not count as green hosted CI.
+Milestone1 tracks manufacturer evidence (issue2); milestone2 tracks the standalone public site, isolation checks and delivery (issue1). Issue-linked PRs must pass checks before merging. The same-repository verify job runs the three Node 22 checks on the isolated lab runner. A future fork PR uses a hosted runner. Local validation does not replace a green CI run.
 
 ## Buying and integration readiness
 
