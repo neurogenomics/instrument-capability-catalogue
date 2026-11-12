@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/neurogenomics/agentic-lab/contracts/common.schema.json",
+  "title": "Shared definitions",
+  "$defs": {
+    "SourceRef": {
+      "type": "object",
+      "description": "Pointer to one record in its system of record. Identity is namespace + native_id; never a text match.",
+      "required": [
+        "namespace",
+        "native_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:[a-z][a-z0-9_-]*$",
+          "description": "system:record_type, e.g. labstep:experiment, linear:issue, github:issue."
+        },
+        "native_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "description": "Native version/revision if the source has one.",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "ContentHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "Timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "Actor": {
+      "type": "object",
+      "required": [
+        "type",
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "person",
+            "agent",
+            "service"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string"
+        }
+      }
+    },
+    "Person": {
+      "allOf": [
+        {
+          "$ref": "common.schema.json#/$defs/Actor"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "person"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    }
+  }
+}

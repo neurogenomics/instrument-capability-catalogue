@@ -1,1 +1,17 @@
-{"name":"instrument-capability-catalogue","private":true,"type":"module","scripts":{"test":"node --test","build":"node scripts/build.mjs","check":"node scripts/check.mjs"},"engines":{"node":">=22"}}
+{
+  "name": "instrument-capability-catalogue",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  }
+}

@@ -6,9 +6,10 @@ This repository and its deployment contain only public instrument reference mate
 
 ## Run and verify
 
-Node 22+, no package dependencies:
+Node 22+. The public browser and build have no package dependencies. The locked Ajv dependencies validate the shared contract in tests.
 
 ```sh
+npm ci --ignore-scripts
 npm test
 npm run check
 npm run build
@@ -32,6 +33,14 @@ The **ROAR equipment** view covers 26 roles from seven public Imperial pages. It
 - `content/roar-models.js` contains model claims with dated original manufacturer sources and model-specific conditions. `content/roar-discovery.js` contains facility observations and their source sections. Facility evidence is labelled `facility` and does not supply manufacturer claims. Records with both manufacturer and facility claims are labelled `mixed-sourced`. A mixed or unclassified source set cannot promote a claim to manufacturer evidence.
 - The full JSON includes `discovery.roar`; model exports include related lead IDs where applicable. The standalone `roar-discovery.json` in the built package and the ROAR view's JSON/CSV exports provide the public crosswalk. The JSON carries the versions for both schemas. Lead IDs are separate from model IDs: only `modelIds` are valid `?instrument=` values; `#roar-<lead-id>` opens the reported role.
 - `matched` links a named model; `grouped` links references within a reported group; `partial` links only the identified component; `unresolved` has no model ID. In each case `identityGap` states what is missing. All ROAR lead rows are `planningEligibility: unassessed` and `controlSupport: unknown`. The ten new models carry the same fields; existing manufacturer and upstream OT-2 evidence stays unchanged.
+
+## C11 model identities
+
+The **ROAR equipment** view links to the C11 bundle and manifest. The built files live at `instrument-model/0.1.0/2026-11-12.public.1/bundle.json` and `instrument-model/0.1.0/2026-11-12.public.1/manifest.json`. The bundle carries both the manifest and the 11 model records. Each manifest row maps an Atlas ID to a C11 `recordRef` with the schema version, record ID, revision ID and content digest. The manifest records the Atlas release and the exact shared contract commit.
+
+The export supplies manufacturer/model identity and a dated manufacturer link for discovery. The manifest includes the source attribution, section and omitted Atlas fields, claims and sources. Where the manufacturer name differs from the displayed Atlas label, the row preserves both. The installed variant, source document version and snapshot digest are unrecorded. Assessment and republication rights are unknown. Detailed manufacturer claims remain available in the ordinary Atlas catalogue. The C11 records contain no reference facts because there is no declared republication basis for the cited material. Facility reports stay in the ROAR crosswalk.
+
+The build checks each first revision against its stored digest. Any later change to a record body needs a new revision that pins its exact parent. Retain the old versioned bundle for existing consumers. The exact shared schema and canonical examples are test fixtures in the private source repository and are excluded from the public build.
 
 ## Delivery
 

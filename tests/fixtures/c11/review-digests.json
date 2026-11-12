@@ -1,0 +1,53 @@
+[
+  {
+    "input": {
+      "z": "µL",
+      "a": "line\n\"\\\t",
+      "n": 9007199254740991
+    },
+    "canonical": "{\"a\":\"line\\n\\\"\\\\\\t\",\"n\":9007199254740991,\"z\":\"µL\"}",
+    "digest": "sha256:4bbdf9d1f934c294f2c7a3c81253181d8c0d2fb536b05a2eacff23c492a0730c"
+  },
+  {
+    "input": {
+      "zero": 0,
+      "integral": 1,
+      "nested": [
+        {
+          "b": "é",
+          "a": "é"
+        }
+      ]
+    },
+    "canonical": "{\"integral\":1,\"nested\":[{\"a\":\"é\",\"b\":\"é\"}],\"zero\":0}",
+    "digest": "sha256:73d7b95b20ff64bf518e22d8942c610cacccd7a6af0d829a60b47acd296157ae"
+  },
+  {
+    "input": {
+      "a": "\u0000\b\f\r\t 😀",
+      "quantity": "10.0"
+    },
+    "canonical": "{\"a\":\"\\u0000\\b\\f\\r\\t 😀\",\"quantity\":\"10.0\"}",
+    "digest": "sha256:03468d2ffd79074b2428a5c6971d13981e0c7b10d62e7d1cdd79dac5527410c1"
+  },
+  {
+    "input": {
+      "10": 10,
+      "2": 2,
+      "negative": -9007199254740991
+    },
+    "canonical": "{\"10\":10,\"2\":2,\"negative\":-9007199254740991}",
+    "digest": "sha256:064b6fa61b886b1e23c05d867c6bef39e49e573c8f282d6dbf87f287d3357b5e"
+  },
+  {
+    "input": {
+      "__proto__": {
+        "synthetic": true
+      },
+      "10": 10,
+      "2": 2
+    },
+    "canonical": "{\"10\":10,\"2\":2,\"__proto__\":{\"synthetic\":true}}",
+    "digest": "sha256:66a2d32496f40959213872c5317d1e1eec1c5c0189ce01f9cf8bf2563c9bee1a"
+  }
+]

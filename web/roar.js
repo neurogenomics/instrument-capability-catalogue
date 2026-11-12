@@ -1,3 +1,5 @@
+import {instrumentModelDirectory} from '../content/instrument-model-release.js';
+
 export function renderRoar({report, records, esc, tag, renderSources, recordURL, search}) {
   const sources = ids => ids.map(id => report.sources.find(source => source.id === id)).filter(Boolean);
   const matches = report.leads.filter(lead => [lead.reportedName, lead.reportedRole, lead.status, lead.identityGap, lead.reportedGroup,
@@ -11,6 +13,8 @@ export function renderRoar({report, records, esc, tag, renderSources, recordURL,
       <div class="buttons"><button class="button small secondary" data-export="roar-json">ROAR crosswalk JSON</button>
       <button class="button small secondary" data-export="roar-csv">ROAR crosswalk CSV</button></div>
     </div>
+    <p class="subtle"><a href="../${instrumentModelDirectory}/bundle.json" download>Download C11 model identities</a>
+      · <a href="../${instrumentModelDirectory}/manifest.json" download>Download C11 manifest</a></p>
     <p class="subtle">${matches.length} matching reports · Planning eligibility unassessed · Control support unknown for all ROAR reports.</p>
     <div class="grid">${matches.map(lead => `<article class="instrument-card" id="roar-${esc(lead.id)}" tabindex="-1">
       <div class="card-top">${tag('Facility reported','discovery')} ${tag(status[lead.status])}</div>
