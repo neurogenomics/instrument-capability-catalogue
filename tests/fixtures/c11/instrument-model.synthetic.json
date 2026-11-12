@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "digest_profile": "agentic-lab/review-json/1",
+  "record_id": "model-1",
+  "revision_id": "r1",
+  "parent": null,
+  "recorded_at": "2026-01-02T12:00:00Z",
+  "visibility": "public",
+  "use_rights": {"discovery": "permitted", "assessment": "permitted", "republication": "permitted", "basis": "Synthetic fixture permission"},
+  "manufacturer": "Example Fabricator",
+  "model_identifier": "Example X",
+  "variant": null,
+  "sources": [{"source": {"namespace": "example:document", "native_id": "capture-1", "version": "capture-r1", "url": "https://example.org/synthetic/catalogue"}, "observed_at": "2026-01-01", "snapshot_digest": "sha256:20b9dba1ad573ab771a59553f3f05f79476221b7e268454a19949b00024f564b", "visibility": "public", "use_rights": {"discovery": "permitted", "assessment": "permitted", "republication": "permitted", "basis": "Synthetic fixture permission"}}],
+  "reference_facts": [{"label": "Option A", "statement": "The source describes an optional module.", "attribution": "manufacturer_reported", "source": {"source": {"namespace": "example:document", "native_id": "capture-1", "version": "capture-r1", "url": "https://example.org/synthetic/catalogue"}, "observed_at": "2026-01-01", "snapshot_digest": "sha256:20b9dba1ad573ab771a59553f3f05f79476221b7e268454a19949b00024f564b", "visibility": "public", "use_rights": {"discovery": "permitted", "assessment": "permitted", "republication": "permitted", "basis": "Synthetic fixture permission"}}}],
+  "content_digest": "sha256:f47860a18b0472d2ee8b94d8f26e1559f1719aeb4abbb904c3d25a2e25dc49fd"
+}

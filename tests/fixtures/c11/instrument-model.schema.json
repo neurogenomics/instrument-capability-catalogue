@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/neurogenomics/agentic-lab/contracts/versions/0.1.0/instrument-model.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "record_id", "revision_id", "content_digest", "digest_profile", "parent", "recorded_at", "visibility", "use_rights", "manufacturer", "model_identifier", "variant", "sources", "reference_facts"],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "record_id": {"$ref": "#/$defs/Id"},
+    "revision_id": {"$ref": "#/$defs/Id"},
+    "content_digest": {"allOf": [{"$ref": "../../common.schema.json#/$defs/ContentHash"}, {"minLength": 71, "maxLength": 71}]},
+    "digest_profile": {"const": "agentic-lab/review-json/1"},
+    "parent": {"anyOf": [{"$ref": "#/$defs/Revision"}, {"type": "null"}]},
+    "recorded_at": {"$ref": "../../common.schema.json#/$defs/Timestamp"},
+    "visibility": {"const": "public"},
+    "use_rights": {"$ref": "#/$defs/UseRights"},
+    "manufacturer": {"type": "string", "minLength": 1},
+    "model_identifier": {"type": "string", "minLength": 1},
+    "variant": {"anyOf": [{"type": "string", "minLength": 1}, {"type": "null"}]},
+    "sources": {"type": "array", "items": {"$ref": "#/$defs/SourceEvidence"}, "uniqueItems": true, "minItems": 1},
+    "reference_facts": {"type": "array", "items": {"$ref": "#/$defs/ModelFact"}, "uniqueItems": true}
+  },
+  "allOf": [{"properties": {"sources": {"items": {"properties": {"visibility": {"const": "public"}, "use_rights": {"properties": {"discovery": {"const": "permitted"}}}}}}}}],
+  "$defs": {
+    "Id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}(?![\\s\\S])"
+    },
+    "Revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "record_id", "revision_id", "content_digest"],
+      "properties": {
+        "schema_version": {"const": "0.1.0"},
+        "record_id": {"$ref": "#/$defs/Id"},
+        "revision_id": {"$ref": "#/$defs/Id"},
+        "content_digest": {"allOf": [{"$ref": "../../common.schema.json#/$defs/ContentHash"}, {"minLength": 71, "maxLength": 71}]}
+      }
+    },
+    "UseRights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["discovery", "assessment", "republication", "basis"],
+      "properties": {
+        "discovery": {"enum": ["permitted", "prohibited", "unknown"]},
+        "assessment": {"enum": ["permitted", "prohibited", "unknown"]},
+        "republication": {"enum": ["permitted", "prohibited", "unknown"]},
+        "basis": {"anyOf": [{"type": "string", "minLength": 1}, {"type": "null"}]}
+      },
+      "allOf": [{"if": {"anyOf": [{"properties": {"discovery": {"const": "permitted"}}}, {"properties": {"assessment": {"const": "permitted"}}}, {"properties": {"republication": {"const": "permitted"}}}]}, "then": {"properties": {"basis": {"type": "string", "minLength": 1}}}}]
+    },
+    "SourceEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "observed_at", "snapshot_digest", "visibility", "use_rights"],
+      "properties": {
+        "source": {"allOf": [{"$ref": "../../common.schema.json#/$defs/SourceRef"}, {"required": ["url"], "properties": {"url": {"pattern": "^https://"}}}]},
+        "observed_at": {"type": "string", "format": "date"},
+        "snapshot_digest": {"anyOf": [{"allOf": [{"$ref": "../../common.schema.json#/$defs/ContentHash"}, {"minLength": 71, "maxLength": 71}]}, {"type": "null"}]},
+        "visibility": {"enum": ["public", "organisation_private"]},
+        "use_rights": {"$ref": "#/$defs/UseRights"}
+      }
+    },
+    "ModelFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "statement", "attribution", "source"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "attribution": {"enum": ["manufacturer_reported", "facility_reported", "third_party_reported"]},
+        "source": {"allOf": [{"$ref": "#/$defs/SourceEvidence"}, {"properties": {"visibility": {"const": "public"}, "use_rights": {"properties": {"republication": {"const": "permitted"}}}}}]}
+      }
+    }
+  }
+}
