@@ -7,7 +7,7 @@ function options(values) {
 function card(p) {
   const links = [p.source, ...(p.additionalSources || [])].map((url, index) =>
     `<a href="${esc(url)}">${index ? esc(new URL(url).hostname) : esc(p.section)}</a>`).join(' · ');
-  return `<article class="panel" id="${esc(p.id)}" data-handoff="${p.handoff ? esc(p.handoffFormat || 'Plate') : 'unassessed'}" data-family="${esc(p.family)}" data-route="${esc(p.acquisition)}">
+  return `<article class="panel" id="${esc(p.id)}" data-handoff="${p.handoff ? esc([p.handoffFormat || 'Plate'].flat().join('|')) : 'unassessed'}" data-family="${esc(p.family)}" data-route="${esc(p.acquisition)}">
     <small>${esc(p.family)} · ${esc(p.acquisition)}</small>
     <h2><a href="../web/index.html?instrument=${esc(p.id)}">${esc(p.model)}</a></h2>
     <p><strong>${esc(p.operation)}</strong></p><p>${esc(p.route)}</p><p>${esc(p.evidence)}</p>
@@ -23,8 +23,8 @@ export function equipmentGuide() {
   <body><main><a href="../web/index.html">Instrument Atlas</a><h1>Molecular biology equipment</h1>
   <p>Find an instrument to buy, a design to build, or a fixture that could connect the two. Open a model to compare its capabilities in the Atlas.</p>
   <form class="filters" onsubmit="return false"><label>Search equipment<input id="query" type="search"></label><label>Equipment family<select id="family"><option value="">All families</option>${options(sorted.map(p=>p.family))}</select></label>
-  <label>Acquisition route<select id="route"><option value="">All routes</option>${options(sorted.map(p=>p.acquisition))}</select></label><label>Physical transfer<select id="handoff"><option value="">Any evidence level</option><option value="Plate">Documented plate handoff</option><option value="Flask">Documented flask handoff</option></select></label></form>
+  <label>Acquisition route<select id="route"><option value="">All routes</option>${options(sorted.map(p=>p.acquisition))}</select></label><label>Physical transfer<select id="handoff"><option value="">Any evidence level</option><option value="Tube">Documented tube handoff</option><option value="Plate">Documented plate handoff</option><option value="Flask">Documented flask handoff</option></select></label><button type="button" id="clear-filters" hidden>Clear filters</button></form>
   <p><span id="count" role="status">${sorted.length} profiles</span> · <a href="profiles.json" download>Download equipment profiles</a></p>
-  <div id="entries">${sorted.map(card).join('\n')}</div><h2>More in the Atlas</h2><p><a href="../web/index.html?instrument=kingfisher">Magnetic extraction</a> · <a href="../web/index.html?instrument=magblock">Magnetic separation</a> · <a href="../web/index.html?instrument=hettich-mikro-220-robotic">Robotic tube centrifugation</a> · <a href="../web/index.html?instrument=brooks-preciseflex-400">Robot arms</a></p></main>
+  <p id="empty" hidden>No equipment matches this combination. Clear filters or choose a broader search.</p><div id="entries">${sorted.map(card).join('\n')}</div><h2>More in the Atlas</h2><p><a href="../web/index.html?instrument=kingfisher">Magnetic extraction</a> · <a href="../web/index.html?instrument=magblock">Magnetic separation</a> · <a href="../web/index.html?instrument=hettich-mikro-220-robotic">Robotic tube centrifugation</a> · <a href="../web/index.html?instrument=brooks-preciseflex-400">Robot arms</a></p></main>
   <script type="module" src="../web/equipment-filters.js"></script></body></html>`;
 }
