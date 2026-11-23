@@ -28,3 +28,7 @@ Follow Nathan's engineering standards (in `~/.codex/AGENTS.md` and `~/.claude/CL
 ## C11 model identity export
 
 `scripts/instrument-model-export.mjs` projects the reviewed ROAR-linked Atlas IDs into versioned shared InstrumentModel records and an exact manifest. The checked-in revision digests guard against replacing a published revision. A successor needs a new revision and the exact parent pin. Preserve the prior bundle and existing Atlas URLs and exports. Use dated OEM discovery links and explicit field loss. Unknown assessment or republication rights stay unknown and supply no C11 reference facts. The pinned Agentic Lab schemas and synthetic vectors in `tests/fixtures/c11/` belong to private test sources and are excluded from public packages.
+
+## Molecular biology equipment
+
+Maintain reviewed profiles in `content/bench-equipment.js`. Reuse existing model IDs when the identity matches. Keep the acquisition route distinct from evidence of physical loading, software control and data export. The November 12 catalogue projection supplies the historical C11 release.

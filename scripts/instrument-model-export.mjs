@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {catalogue} from '../lib/catalogue.js';
+import {november12Catalogue as catalogue} from '../lib/catalogue.js';
 import {instrumentModelAtlasVersion, instrumentModelSchemaVersion} from '../content/instrument-model-release.js';
 import {reviewJsonDigest} from './review-json.mjs';
 

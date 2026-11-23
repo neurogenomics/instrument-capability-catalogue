@@ -55,3 +55,7 @@ Dated procurement observations distinguish instrument, module, bundle and servic
 ### MADSci integration leads
 
 OT-2 and Flex records link to the pinned upstream MADSci module index and module repository, alongside the separate PyLabRobot evidence. The four matching catalogue entries include two curated records and their two PyLabRobot discovery records; they refer to one upstream module, not four devices. All other records are **not assessed** for MADSci, not known incompatible. Check exact command, firmware, hardware, licensing and safety before use. The upstream `run_protocol` action changes its input file in place when substituting parameters; use a disposable working copy if evaluating it. JSON and CSV carry the source URLs and the MADSci evidence separately. This catalogue does not run or vendor the module. The broader MADSci/SiLA crosswalk remains tracked in issue #6.
+
+## Molecular biology equipment guide
+
+The public `/equipment/` guide groups model and design references by family and acquisition route. Each entry links to its Atlas record, integration evidence and an unresolved verification question. The same profiles are available in catalogue search, comparisons and exports. See [the standalone site delivery and hackathon plan](docs/standalone-site-plan.md).
