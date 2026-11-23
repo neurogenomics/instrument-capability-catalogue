@@ -59,3 +59,5 @@ OT-2 and Flex records link to the pinned upstream MADSci module index and module
 ## Molecular biology equipment guide
 
 The public `/equipment/` guide groups model and design references by family and acquisition route. Each entry links to its Atlas record, integration evidence and an unresolved verification question. The same profiles are available in catalogue search, comparisons and exports. See [the standalone site delivery and hackathon plan](docs/standalone-site-plan.md).
+
+The [centrifugation shortlist](https://instrument-capability-catalogue.nathan-skene.chatgpt.site/equipment/?family=Centrifugation) includes robotic, bench and published-design options. Guide URLs preserve filters. Selecting a family clears a physical-transfer choice unavailable in that family.
