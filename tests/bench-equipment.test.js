@@ -18,3 +18,14 @@ test('each guide entry resolves to one searchable model and its evidence', () =>
   assert.equal(catalogue.records.filter(r => r.bench).length, equipment.length);
   assert(toCSV().includes('Published design'));
 });
+
+test('every centrifuge carries a sourced direct-loading judgement through guide and model export', () => {
+  const html = equipmentGuide();
+  for (const profile of equipment.filter(p => p.family === 'Centrifugation')) {
+    const assessment = profile.directLoading;
+    assert(assessment.reason && assessment.check && assessment.effort && assessment.basis);
+    assert(assessment.sources.every(s => new URL(s.url).protocol === 'https:' && s.section));
+    assert.deepEqual(instrumentExport(profile.id).record.bench.directLoading, assessment);
+    assert(html.includes(assessment.effort));
+  }
+});
