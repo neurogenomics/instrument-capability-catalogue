@@ -34,3 +34,5 @@ Follow Nathan's engineering standards (in `~/.codex/AGENTS.md` and `~/.claude/CL
 Maintain reviewed profiles in `content/bench-equipment.js`. Reuse existing model IDs when the identity matches. Keep the acquisition route distinct from evidence of physical loading, software control and data export. The November 12 catalogue projection supplies the historical C11 release.
 
 Keep equipment family and handoff filters consistent. A vessel accepted by a rotor is not sufficient evidence for robotic handoff.
+
+Keep direct-loading engineering judgements separate from measured integration results and cite the relevant instrument or rotor documentation.

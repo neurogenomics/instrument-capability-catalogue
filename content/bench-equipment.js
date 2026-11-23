@@ -232,7 +232,19 @@ export const equipment = [
     "additionalSources": [
       "https://apps.thermofisher.com/apps/lahr/LA_Online_Help_Resource/en-us/Content/Topics/Drivers/Centrifuges/DRVR%20Centrifuge%20Loader.htm"
     ],
-    "handoff": "Optional Access/Access2 loader for microplates"
+    "handoff": "Optional Access/Access2 loader for microplates",
+    "directLoading": {
+      "effort": "Conditional · arm or rotor choice is decisive",
+      "reason": "Direct insertion requires the arm to move the plate horizontally through the door. A vertical-only picker needs the Access or Access2 loader: the robot drops onto its stage and a second gripper loads the bucket.",
+      "check": "Check side-entry reach, plate orientation and door clearance. For a vertical-only arm, include the loader, its footprint and its control interface in the quote.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.agilent.com/Library/usermanuals/Public/G5405-90001C_CentrifugeUG_P_EN.pdf",
+          "section": "Chapter 2: VSpin Overview / VSpin Description"
+        }
+      ]
+    }
   },
   {
     "id": "bench-agilent-benchcel-workstation",
@@ -459,7 +471,19 @@ export const equipment = [
     "section": "README / project description and LICENSE",
     "evidence": "Project repository supplies design files, bill of materials, wiring and code, and states CC BY-SA 4.0 for project work.",
     "gap": "Automation integration, containment, rotor integrity, independent performance validation and fitness for intended laboratory use are not established.",
-    "designLicence": "CC BY-SA 4.0 as stated in README"
+    "designLicence": "CC BY-SA 4.0 as stated in README",
+    "directLoading": {
+      "effort": "Research build · loading mechanism would need development",
+      "reason": "The microtube design publishes mechanical and control files. Those files give a builder a starting geometry, but the reviewed repository provides no demonstrated external-arm loading sequence.",
+      "check": "Establish repeatable rotor registration, tube clearance, containment and a supported safe-access indication before estimating integration time.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://github.com/PieterVanBoheemen/RWXBioFuge",
+          "section": "README / project description and LICENSE"
+        }
+      ]
+    }
   },
   {
     "id": "bench-openpcr",
@@ -913,7 +937,19 @@ export const equipment = [
     "evidence": "Manufacturer specifies direct robotic loading, two buckets, up to 61 mm SBS plate height and 350 g per bucket; HiG 4 provides Peltier cooling to ambient.",
     "gap": "Confirm plate assembly dimensions, gripper approach and software driver; no evidence of direct culture-flask or bottle loading.",
     "handoff": "Robot loads and unloads buckets directly",
-    "handoffFormat": "Plate"
+    "handoffFormat": "Plate",
+    "directLoading": {
+      "effort": "Lower effort · designed for direct loading",
+      "reason": "The HiG 4 documents the same direct bucket-loading approach for SBS plates. Its cooling option changes the thermal capability; the plate still travels in the external gripper.",
+      "check": "Check the loaded plate height and payload, gripper clearance and the HiG 4 balance requirement with the intended plate pair.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://bionexsolutions.com/product-hi-g",
+          "section": "Technical specifications; how integration works"
+        }
+      ]
+    }
   },
   {
     "id": "hettich-mikro-220-robotic",
@@ -929,7 +965,19 @@ export const equipment = [
     "evidence": "Manufacturer explicitly describes robot-arm loading and unloading of tubes up to 2 mL and PC activation.",
     "gap": "Confirm tube and cap dimensions, robot gripper and controller integration; no evidence of flask capability.",
     "handoff": "Robot arm loads and unloads tubes",
-    "handoffFormat": "Tube"
+    "handoffFormat": "Tube",
+    "directLoading": {
+      "effort": "Lower effort · designed for direct loading",
+      "reason": "Hettich explicitly specifies arm loading through a hatch for tubes up to 2 mL, with PC activation. This is the strongest tube-specific evidence in this group.",
+      "check": "Verify that the jaws can grip the chosen closed tube, reach the rotor pocket and release it without catching the cap. Confirm position and ready-to-unload signals.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.hettichlab.com/products/centrifuges/automated-centrifuges/mikro-220-robotic/2350/",
+          "section": "Product description and Facts & Figures"
+        }
+      ]
+    }
   },
   {
     "id": "hettich-rotanta-460-robotic",
@@ -948,7 +996,19 @@ export const equipment = [
     "handoffFormat": [
       "Tube",
       "Plate"
-    ]
+    ],
+    "directLoading": {
+      "effort": "Conditional · arm or rotor choice is decisive",
+      "reason": "The automated lid hatch, positioning function and RS-232 interface provide an integration route. The tube rotor and plate buckets present different targets to the gripper.",
+      "check": "Check whether the robot should grasp an individual tube, plate or carrier for the specified configuration. Obtain the access envelope and confirmation of rotor position.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.hettichlab.com/downloadcenter/Products/Datasheets/ROTANTA460Robotic_EN.pdf",
+          "section": "Highlights, features and rotor tables"
+        }
+      ]
+    }
   },
   {
     "id": "rotina",
@@ -967,7 +1027,19 @@ export const equipment = [
     "handoffFormat": [
       "Tube",
       "Plate"
-    ]
+    ],
+    "directLoading": {
+      "effort": "Conditional · arm or rotor choice is decisive",
+      "reason": "The refrigerated RC model provides an automated hatch and positionable rotor. Tubes and plates use different carriers, so a hatch alone cannot establish that a particular gripper can reach the vessel.",
+      "check": "Choose the exact rotor, carrier and vessel first. Request a drawing of their position at the hatch and the controller handshake before selecting the arm.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.hettichlab.com/downloadcenter/Products/Datasheets/ROTINA380-380RC-Robotic_EN.pdf",
+          "section": "Product overview and rotor tables"
+        }
+      ]
+    }
   },
   {
     "id": "bionex-hig3",
@@ -983,7 +1055,19 @@ export const equipment = [
     "evidence": "Manufacturer specifies direct robotic loading, two buckets, SBS-format plates and assemblies for HiG 3.",
     "gap": "Confirm driver, accessibility and exact plate dimensions; cooling is not specified in cited datasheet. No flask loading evidence.",
     "handoff": "Robot loads and unloads buckets directly",
-    "handoffFormat": "Plate"
+    "handoffFormat": "Plate",
+    "directLoading": {
+      "effort": "Lower effort · designed for direct loading",
+      "reason": "The external gripper places an SBS plate directly in either bucket. BioNex specifies a two-bucket rotor and a 61 mm maximum plate height.",
+      "check": "Check the full plate stack, available side grip and teaching coordinates with your arm. Confirm scheduler support and imbalance handling.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://bionexsolutions.com/product-hi-g",
+          "section": "Technical specifications by model"
+        }
+      ]
+    }
   },
   {
     "id": "celltrio-robo-c",
@@ -997,7 +1081,19 @@ export const equipment = [
     "source": "https://celltrio.com/robocell.html",
     "section": "Task modules / Robo-C centrifugation",
     "evidence": "Manufacturer depicts a Robo-C top-loading centrifuge with conical tubes, within a platform that separately transports and handles T-flasks.",
-    "gap": "Specific robot-to-rotor handoff, tube sizes and controller access require manufacturer confirmation. T-flask transport elsewhere in the platform is not evidence that flasks are centrifuged."
+    "gap": "Specific robot-to-rotor handoff, tube sizes and controller access require manufacturer confirmation. T-flask transport elsewhere in the platform is not evidence that flasks are centrifuged.",
+    "directLoading": {
+      "effort": "Unknown · external-arm access unverified",
+      "reason": "RoboCell includes a top-loading centrifuge pictured with conical tubes. The platform description does not establish how an independent arm presents, releases and retrieves a tube at the rotor.",
+      "check": "Ask for the Robo-C handoff drawing, supported grippers and third-party control interface. The platform’s T-flask transport does not establish flask access to this rotor.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://celltrio.com/robocell.html",
+          "section": "Task modules / Robo-C centrifugation"
+        }
+      ]
+    }
   },
   {
     "id": "eppendorf-minispin-plus",
@@ -1011,7 +1107,19 @@ export const equipment = [
     "source": "https://www.eppendorf.com/product-media/doc/en/2312249/Centrifugation_Operating-manual_Centrifuges-5452-5453_MiniSpin-Plus-compliant-2017-746-EC.pdf",
     "section": "Technical data §9.7 rotor specifications",
     "evidence": "F-45-12-11 rotor takes 12 × 1.5/2.0 mL tubes. Optional F-55-16-5-PCR rotor takes two 8-tube 0.2 mL strips.",
-    "gap": "Verify selected rotor package and tubes. Host control and robotic loading are unverified."
+    "gap": "Verify selected rotor package and tubes. Host control and robotic loading are unverified.",
+    "directLoading": {
+      "effort": "High effort · custom integration expected",
+      "reason": "The documented workflow uses local controls and manual loading. A robot gripping a microtube would have to present it to a specific pocket in the selected fixed-angle rotor.",
+      "check": "Ask whether supported lid access, rotor registration and position feedback exist for that rotor. Budget for operator loading until those are demonstrated.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.eppendorf.com/product-media/doc/en/2312249/Centrifugation_Operating-manual_Centrifuges-5452-5453_MiniSpin-Plus-compliant-2017-746-EC.pdf",
+          "section": "Technical data §9.7 rotor specifications"
+        }
+      ]
+    }
   },
   {
     "id": "eppendorf-5425-r",
@@ -1025,7 +1133,19 @@ export const equipment = [
     "source": "https://www.eppendorf.com/product-media/doc/en/924635/Centrifugation_Operating-manual_Centrifuge-5425-R.pdf",
     "section": "Operating manual §10.1, Rotor FA-24x2 and rotor FA-24x2-PTFE",
     "evidence": "Manual specifies a fixed-angle rotor for 24 × 1.5/2.0 mL tubes. Smaller vessels require the corresponding listed adapter.",
-    "gap": "Verify exact rotor, adapter and tube closure compatibility. Host control and robotic loading are unverified."
+    "gap": "Verify exact rotor, adapter and tube closure compatibility. Host control and robotic loading are unverified.",
+    "directLoading": {
+      "effort": "High effort · custom integration expected",
+      "reason": "The documented fixed-angle rotor accepts manually loaded microtubes. Refrigeration does not address chamber access, rotor-lid handling or repeatable positioning of the selected tube pocket.",
+      "check": "Identify the exact rotor and lid, then verify cap and jaw clearance and a supported means of confirming a safe, stationary load position.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.eppendorf.com/product-media/doc/en/924635/Centrifugation_Operating-manual_Centrifuge-5425-R.pdf",
+          "section": "Operating manual §10.1, Rotor FA-24x2 and rotor FA-24x2-PTFE"
+        }
+      ]
+    }
   },
   {
     "id": "thermo-sorvall-st-8r",
@@ -1039,7 +1159,19 @@ export const equipment = [
     "source": "https://documents.thermofisher.com/TFS-Assets/LED/manuals/50156640-d-Thermo%20Scientific%20Sorvall%20ST%208R-en.pdf",
     "section": "Chapter 1, Rotor Selection, p. 14",
     "evidence": "Manufacturer lists TX-150 swinging-bucket rotor and matched 50 mL conical buckets, plus the HIGHConic III fixed-angle rotor. The system is supplied without a rotor.",
-    "gap": "Purchase or identify a matched rotor and bucket set. Check adapter requirements for other tubes and current model availability."
+    "gap": "Purchase or identify a matched rotor and bucket set. Check adapter requirements for other tubes and current model availability.",
+    "directLoading": {
+      "effort": "High effort · custom integration expected",
+      "reason": "This manually loaded instrument can have a swinging bucket for 50 mL conicals or a fixed-angle rotor. Those choices give the arm different insertion paths and support surfaces.",
+      "check": "Select the rotor and bucket first. Ask for evidence of repeatable bucket presentation, supported door actuation and a load-permitted signal.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://documents.thermofisher.com/TFS-Assets/LED/manuals/50156640-d-Thermo%20Scientific%20Sorvall%20ST%208R-en.pdf",
+          "section": "Chapter 1, Rotor Selection, p. 14"
+        }
+      ]
+    }
   },
   {
     "id": "benchmark-platefuge-c2000",
@@ -1053,7 +1185,19 @@ export const equipment = [
     "source": "https://www.benchmarkscientific.com/rpproducts/platefuge-microcentrifuge/",
     "section": "Specifications and optional rotor listings",
     "evidence": "Swing-out carriers accept two PCR or compatible microtiter plates up to 25 mm tall. C2000-DWMP optional rotor supports deep-well plates up to 35 mm at a lower speed.",
-    "gap": "Verify plate height with seal and carrier. Programmatic control and robotic loading are unverified."
+    "gap": "Verify plate height with seal and carrier. Programmatic control and robotic loading are unverified.",
+    "directLoading": {
+      "effort": "High effort · custom integration expected",
+      "reason": "The plate format is convenient to grip, but the documented instrument has manually loaded swing-out carriers. Plate compatibility alone does not establish access for gripper fingers at the carrier.",
+      "check": "Check carrier presentation and seat depth with the actual plate, seal and gripper. Remote lid and rotor positioning have not been established.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.benchmarkscientific.com/rpproducts/platefuge-microcentrifuge/",
+          "section": "Specifications and optional rotor listings"
+        }
+      ]
+    }
   },
   {
     "id": "beckman-avanti-j26s-xp",
@@ -1067,7 +1211,27 @@ export const equipment = [
     "source": "https://media.beckman.com/-/media/japan-team/pdfs/brochures/avanti-series_jp.pdf?rev=2ac7a9814bd1494fb9e49396184ab4b8",
     "section": "Avanti model comparison and rotor capacity table",
     "evidence": "Manufacturer brochure lists B14535 and six 1,000 mL positions with the JLA-8.1000 rotor.",
-    "gap": "Confirm current regional availability, vessel/closure selection and rotor limits from the rotor manual. Robotic loading and host control are unverified."
+    "gap": "Confirm current regional availability, vessel/closure selection and rotor limits from the rotor manual. Robotic loading and host control are unverified.",
+    "directLoading": {
+      "effort": "High effort · custom integration expected",
+      "reason": "With the JLA-8.1000 rotor, access involves the foot-pedal chamber door, a separate rotor lid with a threaded knob, and capped bottle assemblies with lifting handles. A simple bottle pick-and-place leaves both closures unresolved.",
+      "check": "Before shortlisting for unattended loading, request a supported way to operate the chamber and rotor lids, locate the canisters, and verify seated bottles and locked closures. The reviewed manuals describe operator handling.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://media.beckman.com/-/media/japan-team/pdfs/brochures/avanti-series_jp.pdf?rev=2ac7a9814bd1494fb9e49396184ab4b8",
+          "section": "Avanti model comparison and rotor capacity table"
+        },
+        {
+          "url": "https://www.ubi.se/wp-content/uploads/2025/08/B10087AF.pdf",
+          "section": "Beckman Coulter Avanti J-26S XP instructions, Centrifuge Chassis / Door"
+        },
+        {
+          "url": "https://bio.pnpi.nrcki.ru/wp-content/uploads/2020/01/Beckman_JLA_8_1000_Rotor.pdf",
+          "section": "Beckman Coulter J-Lite rotor instructions, Removal and Sample Recovery, p. 16"
+        }
+      ]
+    }
   },
   {
     "id": "beckman-optima-xpn100",
@@ -1084,7 +1248,23 @@ export const equipment = [
     "gap": "Verify permitted tubes and closures for the selected rotor. Vendor remote control does not establish a public programmatic interface or robotic loading.",
     "additionalSources": [
       "https://store.beckman.com/en-GB/p/type-100-ti-fixed-angle-rotor/363013"
-    ]
+    ],
+    "directLoading": {
+      "effort": "High effort · custom integration expected",
+      "reason": "Remote start, stop and monitoring cover the instrument run. For the Type 100 Ti configuration, the robot would still have to present the specified tube assembly to a fixed-angle rotor and manage rotor access.",
+      "check": "Confirm tube closure and rotor cover tooling, a repeatable target position and a supported door/lock interface. Remote run commands provide no evidence for these handoffs.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.beckman.com/centrifuges/ultracentrifuges/optima-xpn",
+          "section": "Remote monitoring and control; product variants"
+        },
+        {
+          "url": "https://store.beckman.com/en-GB/p/type-100-ti-fixed-angle-rotor/363013",
+          "section": "Type 100 Ti rotor specifications"
+        }
+      ]
+    }
   },
   {
     "id": "thermo-sorvall-lynx6000",
@@ -1098,7 +1278,19 @@ export const equipment = [
     "source": "https://tools.qa.thermofisher.com/content/sfs/brochures/Sorvall-LYNX-Superspeed-Centrifuge-RTBA-EN.pdf",
     "section": "Fiberlite F9-6x1000 LEX Rotor Specifications and Ordering Information",
     "evidence": "Manufacturer lists six 1 L PPCO capped bottles, a 98 × 195 mm vessel envelope and explicit LYNX 6000 compatibility for this rotor package.",
-    "gap": "Confirm the installed rotor and manufacturer-listed bottle/cap combination. Host control and robotic loading are unverified."
+    "gap": "Confirm the installed rotor and manufacturer-listed bottle/cap combination. Host control and robotic loading are unverified.",
+    "directLoading": {
+      "effort": "High effort · custom integration expected",
+      "reason": "The cited F9-6x1000 LEX configuration uses capped litre bottles. An arm would need payload and reach for the filled bottle and tooling, with a reliable approach to each rotor position.",
+      "check": "Obtain drawings for the fitted rotor and cover, bottle gripping surfaces and access above the chamber. Confirm manufacturer-supported door and position feedback.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://tools.qa.thermofisher.com/content/sfs/brochures/Sorvall-LYNX-Superspeed-Centrifuge-RTBA-EN.pdf",
+          "section": "Fiberlite F9-6x1000 LEX Rotor Specifications and Ordering Information"
+        }
+      ]
+    }
   },
   {
     "id": "bhamla-3d-fuge",
@@ -1116,7 +1308,19 @@ export const equipment = [
       "https://github.com/bhamla-lab/3D-fuge-PlOS-Biology-2019"
     ],
     "family": "Centrifugation",
-    "acquisition": "Published design"
+    "acquisition": "Published design",
+    "directLoading": {
+      "effort": "Research build · loading mechanism would need development",
+      "reason": "The published pull-string device is manually actuated. It provides no fixed workcell loading station or documented rotor-position feedback for a gripper.",
+      "check": "A repeatable mount and load pose would need development. A separate actuation problem remains even if an arm could place a sample.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000251",
+          "section": "Data Availability; Table 1; S1 Text; author repository file list"
+        }
+      ]
+    }
   },
   {
     "id": "sule-printed-centrifuge",
@@ -1134,7 +1338,19 @@ export const equipment = [
       "https://osf.io/besmf/"
     ],
     "family": "Centrifugation",
-    "acquisition": "Published design"
+    "acquisition": "Published design",
+    "directLoading": {
+      "effort": "Research build · loading mechanism would need development",
+      "reason": "The printed frame and crank define a mechanical assembly, but the documented drive is manual. Repeatable rotor pocket presentation to an external arm is unverified.",
+      "check": "Assess the mounted frame, available gripper approach and rotor registration separately from any proposal to automate the crank.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://www.mdpi.com/2410-390x/3/2/30",
+          "section": "Sections 2.1 and 2.2; Table 1; reference 64 (OSF)"
+        }
+      ]
+    }
   },
   {
     "id": "poor-mini-benchtop-centrifuge",
@@ -1152,7 +1368,19 @@ export const equipment = [
       "https://data.mendeley.com/datasets/sy2vrhj227/1"
     ],
     "family": "Centrifugation",
-    "acquisition": "Published design"
+    "acquisition": "Published design",
+    "directLoading": {
+      "effort": "Research build · loading mechanism would need development",
+      "reason": "Printable rotors and adapters provide geometry to inspect. The design includes a switched lid and fan drive; neither establishes automatic lid opening or presentation of a specific pocket to the arm.",
+      "check": "Identify the exact adapter and tube, then establish access, stationary rotor detection and registration before treating the design as robot-loadable.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9234221/",
+          "section": "Specifications table; Design files and summary; Bill of materials"
+        }
+      ]
+    }
   },
   {
     "id": "mobilefuge",
@@ -1170,6 +1398,18 @@ export const equipment = [
       "https://zenodo.org/records/7032655"
     ],
     "family": "Centrifugation",
-    "acquisition": "Published design"
+    "acquisition": "Published design",
+    "directLoading": {
+      "effort": "Research build · loading mechanism would need development",
+      "reason": "The printed jar, lids and rotor are accessible as design files. The USB connection supplies power to the fan motor. No indexed loading position or powered lid is documented.",
+      "check": "Assess lid handling and gripper clearance against a pinned design revision. A repeatable, safely accessible load position would need independent evidence.",
+      "basis": "Desk assessment for a third-party arm using the stated vessel and rotor. Integration effort is inferred from documents. No physical arm test or commissioning time was measured.",
+      "sources": [
+        {
+          "url": "https://ore.eu/article/view/268",
+          "section": "Table 1 Bill of materials; Data availability, CAD and STL files"
+        }
+      ]
+    }
   }
 ];

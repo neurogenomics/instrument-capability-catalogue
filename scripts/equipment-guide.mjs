@@ -1,3 +1,4 @@
+import {renderDirectLoading} from '../web/direct-loading.js';
 import {equipment} from '../content/bench-equipment.js';
 
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -12,6 +13,7 @@ function card(p) {
     <h2><a href="../web/index.html?instrument=${esc(p.id)}">${esc(p.model)}</a></h2>
     <p><strong>${esc(p.operation)}</strong></p><p>${esc(p.route)}</p><p>${esc(p.evidence)}</p>
     ${p.handoff ? `<p><strong>Documented handoff</strong> ${esc(p.handoff)}</p>` : ''}
+    ${renderDirectLoading(p.directLoading, esc)}
     ${p.designLicence ? `<p><strong>Licence</strong> ${esc(p.designLicence)}</p>` : ''}
     <p><strong>Check before choosing</strong> ${esc(p.gap)}</p><p>Evidence · ${links}</p></article>`;
 }
