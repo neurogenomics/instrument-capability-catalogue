@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import {catalogue, instrumentExport, roarDiscoveryExport} from '../lib/catalogue.js';
+import {catalogue, november12Catalogue, instrumentExport, roarDiscoveryExport} from '../lib/catalogue.js';
 import {instrumentModelDirectory} from '../content/instrument-model-release.js';
 import {instrumentModelExport} from '../scripts/instrument-model-export.mjs';
 import {canonicalJson, reviewJsonDigest} from '../scripts/review-json.mjs';
@@ -74,7 +74,8 @@ test('every linked Atlas model resolves to an exact schema-valid, independently 
   const resolved = new Map(bundle.records.map(record => [record.record_id, record]));
   for (const row of bundle.manifest.models) {
     assert(expected.delete(row.atlasId));
-    const atlas = instrumentExport(row.atlasId).record;
+    const atlas = november12Catalogue.records.find(record => record.id === row.atlasId);
+    assert.equal(instrumentExport(row.atlasId).record.id, atlas.id);
     assert.equal(row.atlasQuery, `?instrument=${atlas.id}`);
     assert.equal(row.atlasLabel, atlas.name);
     assert.equal(row.recordRef.record_id, `atlas:${atlas.id}`);
@@ -117,7 +118,7 @@ test('every linked Atlas model resolves to an exact schema-valid, independently 
 });
 
 test('a model identity change cannot replace a published revision pin', () => {
-  const atlas = catalogue.records.find(record => record.id === 'ot2');
+  const atlas = november12Catalogue.records.find(record => record.id === 'ot2');
   const previous = atlas.vendor;
   try {
     atlas.vendor = 'Changed manufacturer';

@@ -2,9 +2,15 @@ import {mkdir,rm,cp,writeFile,readFile,readdir} from 'node:fs/promises';import a
 import {instrumentModelExport} from './instrument-model-export.mjs';
 import {instrumentModelDirectory} from '../content/instrument-model-release.js';
 import {roarDiscoveryExport} from '../lib/catalogue.js';
+import {equipmentGuide} from './equipment-guide.mjs';
+import {equipment} from '../content/bench-equipment.js';
+import {benchRelease} from '../lib/bench-equipment.js';
 await rm('dist',{recursive:true,force:true});await mkdir('dist');
 for(const dir of ['web','lib','content'])await cp(dir,`dist/${dir}`,{recursive:true});
 await writeFile('dist/roar-discovery.json', JSON.stringify(roarDiscoveryExport(), null, 2)+'\n');
+await mkdir('dist/equipment');
+await writeFile('dist/equipment/index.html', equipmentGuide());
+await writeFile('dist/equipment/profiles.json', JSON.stringify({version: benchRelease, profiles: equipment}, null, 2));
 const modelDirectory = `dist/${instrumentModelDirectory}`;
 const modelBundle = instrumentModelExport();
 await mkdir(modelDirectory, {recursive: true});
