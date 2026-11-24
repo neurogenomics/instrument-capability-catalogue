@@ -1,6 +1,7 @@
 {
   "name": "instrument-capability-catalogue",
   "private": true,
+  "license": "MIT AND CC-BY-4.0",
   "type": "module",
   "scripts": {
     "test": "node --test",

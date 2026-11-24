@@ -2,7 +2,11 @@
 
 Standalone public laboratory instrument catalogue: capabilities, heads and modules, configuration-specific limits, manufacturer references and explicit gaps. Software integration registry entries are kept in a separate discovery layer.
 
-This repository and its deployment contain only public instrument reference material. There are no local protocols, installation inventories, access arrangements, correspondence or unpublished methods. The source repository is private under the lab's repository policy; the catalogue website is public.
+**Open the catalogue: <https://instrument-capability-catalogue.nathan-skene.chatgpt.site/>.** No account is needed. Search or filter instruments, open a record to see each claim with its source, compare models, and download the records as JSON or CSV.
+
+This repository and its deployment contain only public instrument reference material. There are no local protocols, installation inventories, access arrangements, correspondence or unpublished methods. Both the source repository and the catalogue website are public.
+
+Found a wrong or missing record? [Open an issue](https://github.com/neurogenomics/instrument-capability-catalogue/issues/new/choose) with the manufacturer source that shows the correct value. To plan automation for a protocol using these records, use the [Automation Atlas planner](https://lab-automation-planner-skene.nathan-skene.chatgpt.site/web/index.html).
 
 ## Run and verify
 
@@ -44,7 +48,7 @@ The build checks each first revision against its stored digest. Any later change
 
 ## Delivery
 
-Milestone1 tracks manufacturer evidence (issue2); milestone2 tracks the standalone public site, isolation checks and delivery (issue1). Issue-linked PRs must pass checks before merging. The same-repository verify job runs the three Node 22 checks on the isolated lab runner. A future fork PR uses a hosted runner. Local validation does not replace a green CI run.
+Milestone1 tracks manufacturer evidence (issue2); milestone2 tracks the standalone public site, isolation checks and delivery (issue1). Issue-linked PRs must pass checks before merging. The verify job runs the three Node 22 checks on a GitHub-hosted runner for every push to `main` and every pull request, including forks. Local validation does not replace a green CI run.
 
 ## Buying and integration readiness
 
@@ -63,3 +67,9 @@ The public `/equipment/` guide groups model and design references by family and 
 The [centrifugation shortlist](https://instrument-capability-catalogue.nathan-skene.chatgpt.site/equipment/?family=Centrifugation) includes robotic, bench and published-design options. Guide URLs preserve filters. Selecting a family clears a physical-transfer choice unavailable in that family.
 
 Centrifuge profiles include a sourced desk assessment of external-arm loading effort, configuration limits and the next integration question on guide, model and comparison pages.
+
+## Licence
+
+- Code (`lib/`, `scripts/`, `web/`, `tests/`): [MIT](LICENSE).
+- Authored instrument records and documentation (`content/`, `docs/`, and the JSON and CSV exports built from them): [CC BY 4.0](LICENSE-DATA). Cite as "Instrument Atlas, neurogenomics lab, Imperial College London" with a link to the record or this repository.
+- Third-party material keeps its own terms. The PyLabRobot registry entries are MIT with the upstream notice in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Manufacturer documents are linked, not redistributed, and are not relicensed here.

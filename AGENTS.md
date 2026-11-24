@@ -10,8 +10,8 @@ Follow Nathan's engineering standards (in `~/.codex/AGENTS.md` and `~/.claude/CL
 
 ## Public-only source contract
 
-- npm ci --ignore-scripts; npm test; npm run check; npm run build. Node 22+. Ajv and formats are locked test dependencies. The public runtime and build are dependency-free. The verify job uses the existing isolated `lab-sandbox` runner for same-repository work and read-only repository permissions.
-- This entire source tree may be packaged for the public Site source repository. Never copy private planner sources/history, local SOPs, access records, correspondence or private evidence paths here.
+- npm ci --ignore-scripts; npm test; npm run check; npm run build. Node 22+. Ajv and formats are locked test dependencies. The public runtime and build are dependency-free. The verify job uses a GitHub-hosted runner with read-only repository permissions. The repository is public: never point a workflow at the lab's self-hosted runner.
+- This repository is public (#21): code is MIT (`LICENSE`), authored records and docs are CC BY 4.0 (`LICENSE-DATA`). Everything committed, and every issue and pull request comment, is published. Never copy private planner sources/history, local SOPs, access records, correspondence or private evidence paths here.
 - Each claim needs sourceIds resolving to a source URL and section; quantitative claims need units and configuration/conditions. Gaps remain explicit. Driver support does not establish hardware or assay validity.
 - dist/ is generated and ignored. Build scans every deployed asset for private markers. Retain full upstream MIT notices in downloadable records and THIRD_PARTY_NOTICES.md.
 

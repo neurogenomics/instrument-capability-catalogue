@@ -7,8 +7,8 @@ permissions:
   contents: read
 jobs:
   verify:
-    # Keep any future fork PR off the private lab runner.
-    runs-on: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && fromJSON('["ubuntu-latest"]') || fromJSON('["self-hosted","lab-sandbox"]') }}
+    # Public repository: GitHub-hosted only, never the lab's self-hosted runner.
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
